@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar QR - AutoPartes Moto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-motorcycle"></i>
+                <h1>AutoPartes Moto</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="reporte-robo.html">Reportar Robo</a></li>
+                    <li><a href="verificar-qr.html" class="active">Verificar QR</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: var(--gradient-1); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">
+                <i class="fas fa-qrcode"></i> Verificar Código QR
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary);">Escanea o sube un QR para verificar si una parte está reportada como robada</p>
+        </div>
+    </section>
+
+    <!-- Verification Options -->
+    <section style="padding: 3rem 0;">
+        <div class="container">
+            <!-- Options Cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="feature-card" style="background: var(--bg-card); padding: 2rem; border: 2px solid var(--accent-color); cursor: pointer;" onclick="showScanSection()">
+                    <i class="fas fa-camera" style="font-size: 4rem; color: var(--primary-color);"></i>
+                    <h3 style="margin: 1rem 0;">Escanear con Cámara</h3>
+                    <p style="color: var(--text-secondary);">Usa tu cámara para escanear el código QR directamente</p>
+                </div>
+
+                <div class="feature-card" style="background: var(--bg-card); padding: 2rem; border: 2px solid var(--accent-color); cursor: pointer;" onclick="showUploadSection()">
+                    <i class="fas fa-upload" style="font-size: 4rem; color: var(--primary-color);"></i>
+                    <h3 style="margin: 1rem 0;">Subir Imagen QR</h3>
+                    <p style="color: var(--text-secondary);">Sube una foto del código QR desde tu dispositivo</p>
+                </div>
+
+                <div class="feature-card" style="background: var(--bg-card); padding: 2rem; border: 2px solid var(--accent-color); cursor: pointer;" onclick="showManualSection()">
+                    <i class="fas fa-keyboard" style="font-size: 4rem; color: var(--primary-color);"></i>
+                    <h3 style="margin: 1rem 0;">Ingresar Código Manual</h3>
+                    <p style="color: var(--text-secondary);">Escribe el código de reporte manualmente</p>
+                </div>
+            </div>
+
+            <!-- Scan Section -->
+            <div id="scanSection" style="display: none;">
+                <div class="contact-form" style="max-width: 800px; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">
+                        <i class="fas fa-camera"></i> Escanear con Cámara
+                    </h2>
+                    
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <video id="qrVideo" style="width: 100%; max-width: 500px; border-radius: 15px; display: none;"></video>
+                        <canvas id="qrCanvas" style="display: none;"></canvas>
+                        
+                        <div id="cameraPlaceholder" style="background: var(--bg-dark); padding: 4rem; border-radius: 15px; border: 2px dashed var(--primary-color);">
+                            <i class="fas fa-camera" style="font-size: 5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Haz clic para iniciar la cámara</p>
+                            <button onclick="startCamera()" class="btn-primary">
+                                <i class="fas fa-video"></i> Iniciar Cámara
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button onclick="hideAllSections()" class="btn-primary" style="background: var(--accent-color);">
+                            <i class="fas fa-arrow-left"></i> Volver
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Section -->
+            <div id="uploadSection" style="display: none;">
+                <div class="contact-form" style="max-width: 800px; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">
+                        <i class="fas fa-upload"></i> Subir Imagen de QR
+                    </h2>
+                    
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <div id="uploadPlaceholder" style="background: var(--bg-dark); padding: 4rem; border-radius: 15px; border: 2px dashed var(--primary-color); cursor: pointer;" onclick="document.getElementById('qrFileInput').click()">
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Arrastra una imagen aquí o haz clic para seleccionar</p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem;">Formatos: JPG, PNG, WebP</p>
+                        </div>
+                        <input type="file" id="qrFileInput" accept="image/*" style="display: none;" onchange="handleQRUpload(event)">
+                        
+                        <div id="uploadPreview" style="display: none; margin-top: 2rem;">
+                            <img id="uploadedImage" style="max-width: 100%; border-radius: 15px; margin-bottom: 1rem;">
+                            <button onclick="processUploadedQR()" class="btn-primary">
+                                <i class="fas fa-search"></i> Analizar QR
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button onclick="hideAllSections()" class="btn-primary" style="background: var(--accent-color);">
+                            <i class="fas fa-arrow-left"></i> Volver
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manual Section -->
+            <div id="manualSection" style="display: none;">
+                <div class="contact-form" style="max-width: 600px; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">
+                        <i class="fas fa-keyboard"></i> Ingresar Código Manual
+                    </h2>
+                    
+                    <form id="manualVerifyForm" onsubmit="verifyManualCode(event)">
+                        <div class="form-group">
+                            <label for="manualCode">
+                                <i class="fas fa-hashtag"></i> Código de Reporte
+                            </label>
+                            <input type="text" id="manualCode" required placeholder="Ej: STOLEN-1699632000000" style="font-family: monospace; font-size: 1.1rem;">
+                            <small style="color: var(--text-secondary); display: block; margin-top: 0.5rem;">
+                                Ingresa el código que aparece en el QR o en el reporte
+                            </small>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-search"></i> Verificar Código
+                        </button>
+                    </form>
+
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button onclick="hideAllSections()" class="btn-primary" style="background: var(--accent-color);">
+                            <i class="fas fa-arrow-left"></i> Volver
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" style="display: none;">
+                <div class="contact-form" style="max-width: 800px; margin: 0 auto;">
+                    <div id="resultContent">
+                        <!-- Los resultados se mostrarán aquí -->
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button onclick="resetVerification()" class="btn-primary">
+                            <i class="fas fa-redo"></i> Nueva Verificación
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section style="padding: 3rem 0; background: var(--accent-color);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem;">
+                    <i class="fas fa-shield-alt"></i> Sistema de Seguridad
+                </h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem;">
+                    Nuestro sistema de verificación QR ayuda a prevenir la compra y venta de autopartes robadas.
+                    Cada parte reportada como robada recibe un código único que puede ser verificado por cualquier persona.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div>
+                        <i class="fas fa-check-circle" style="font-size: 3rem; color: #00ff88; margin-bottom: 0.5rem;"></i>
+                        <h3 style="margin-bottom: 0.5rem;">Verificación Instantánea</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Resultados en segundos</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-database" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 0.5rem;"></i>
+                        <h3 style="margin-bottom: 0.5rem;">Base de Datos Actualizada</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Información en tiempo real</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-lock" style="font-size: 3rem; color: #ffaa00; margin-bottom: 0.5rem;"></i>
+                        <h3 style="margin-bottom: 0.5rem;">Seguro y Confiable</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Datos protegidos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Reports -->
+    <section style="padding: 3rem 0;">
+        <div class="container">
+            <h2 class="section-title">Reportes Recientes</h2>
+            <div id="recentReports" class="products-grid">
+                <!-- Se cargarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AutoPartes Moto</h3>
+                    <p>Tu tienda de confianza para repuestos de motocicletas</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="reporte-robo.html">Reportar Robo</a></li>
+                        <li><a href="verificar-qr.html">Verificar QR</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Seguridad</h4>
+                    <ul>
+                        <li><a href="reporte-robo.html"><i class="fas fa-shield-alt"></i> Reportar Robo</a></li>
+                        <li><a href="verificar-qr.html"><i class="fas fa-qrcode"></i> Verificar QR</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@autopartesmoto.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección, Ciudad</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoPartes Moto - Prototipo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Scanner Library -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="script.js"></script>
+    <script src="stolen-parts.js"></script>
+</body>
+</html>

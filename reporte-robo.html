@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Parte Robada - AutoPartes Moto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-motorcycle"></i>
+                <h1>AutoPartes Moto</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="reporte-robo.html" class="active">Reportar Robo</a></li>
+                    <li><a href="verificar-qr.html">Verificar QR</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">
+                <i class="fas fa-exclamation-triangle"></i> Reportar Parte Robada
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary);">Registra autopartes robadas para prevenir su venta</p>
+        </div>
+    </section>
+
+    <!-- Alert Info -->
+    <section style="padding: 2rem 0;">
+        <div class="container">
+            <div style="background: rgba(255, 170, 0, 0.2); border-left: 4px solid #ffaa00; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                <h3 style="color: #ffaa00; margin-bottom: 0.5rem;">
+                    <i class="fas fa-info-circle"></i> Información Importante
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                    • Al registrar una parte robada, se generará un código QR único con la información
+                </p>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                    • Las partes registradas NO podrán ser vendidas en nuestra plataforma
+                </p>
+                <p style="color: var(--text-secondary);">
+                    • Cualquiera puede escanear el QR para verificar si una parte está reportada como robada
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Form -->
+    <section class="contact-section" style="padding: 2rem 0 4rem;">
+        <div class="container">
+            <div class="contact-form">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #ff4444;">
+                    <i class="fas fa-shield-alt"></i> Formulario de Reporte
+                </h2>
+                <form id="reportForm">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">
+                        <i class="fas fa-box"></i> Información de la Parte
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="partName">
+                            <i class="fas fa-tag"></i> Nombre de la Parte *
+                        </label>
+                        <input type="text" id="partName" required placeholder="Ej: Motor Honda CBR 600RR">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="partCategory">
+                                <i class="fas fa-list"></i> Categoría *
+                            </label>
+                            <select id="partCategory" required>
+                                <option value="">Selecciona una categoría</option>
+                                <option value="1">Motores</option>
+                                <option value="2">Suspensión</option>
+                                <option value="3">Frenos</option>
+                                <option value="4">Escape</option>
+                                <option value="5">Carrocería</option>
+                                <option value="6">Eléctrico</option>
+                                <option value="7">Transmisión</option>
+                                <option value="8">Accesorios</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="partBrand">
+                                <i class="fas fa-copyright"></i> Marca *
+                            </label>
+                            <input type="text" id="partBrand" required placeholder="Ej: Honda, Yamaha, Kawasaki">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="partModel">
+                                <i class="fas fa-motorcycle"></i> Modelo
+                            </label>
+                            <input type="text" id="partModel" placeholder="Ej: CBR 600RR">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="partYear">
+                                <i class="fas fa-calendar"></i> Año
+                            </label>
+                            <input type="text" id="partYear" placeholder="Ej: 2018-2020">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serialNumber">
+                            <i class="fas fa-barcode"></i> Número de Serie / Identificación
+                        </label>
+                        <input type="text" id="serialNumber" placeholder="Si está disponible">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="partDescription">
+                            <i class="fas fa-align-left"></i> Descripción Detallada *
+                        </label>
+                        <textarea id="partDescription" required placeholder="Describe la parte, características distintivas, marcas, etc."></textarea>
+                    </div>
+
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">
+                        <i class="fas fa-user"></i> Información del Propietario
+                    </h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="ownerName">
+                                <i class="fas fa-user"></i> Nombre Completo *
+                            </label>
+                            <input type="text" id="ownerName" required placeholder="Tu nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ownerPhone">
+                                <i class="fas fa-phone"></i> Teléfono *
+                            </label>
+                            <input type="tel" id="ownerPhone" required placeholder="+123 456 7890">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ownerEmail">
+                            <i class="fas fa-envelope"></i> Email *
+                        </label>
+                        <input type="email" id="ownerEmail" required placeholder="tu@email.com">
+                    </div>
+
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">
+                        <i class="fas fa-map-marker-alt"></i> Información del Robo
+                    </h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="theftDate">
+                                <i class="fas fa-calendar-alt"></i> Fecha del Robo *
+                            </label>
+                            <input type="date" id="theftDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="theftLocation">
+                                <i class="fas fa-location-dot"></i> Ubicación *
+                            </label>
+                            <input type="text" id="theftLocation" required placeholder="Ciudad, zona">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="policeReport">
+                            <i class="fas fa-file-alt"></i> Número de Denuncia Policial
+                        </label>
+                        <input type="text" id="policeReport" placeholder="Si realizaste denuncia">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalInfo">
+                            <i class="fas fa-comment"></i> Información Adicional
+                        </label>
+                        <textarea id="additionalInfo" placeholder="Cualquier otra información relevante"></textarea>
+                    </div>
+
+                    <div class="form-group" style="background: rgba(0, 212, 255, 0.1); padding: 1rem; border-radius: 10px;">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" id="confirmData" required style="width: auto; margin-right: 10px;">
+                            <span>Confirmo que la información proporcionada es verídica y acepto la responsabilidad legal de este reporte *</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit" style="background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);">
+                        <i class="fas fa-shield-alt"></i> Registrar Parte Robada
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Modal -->
+    <div id="qrModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: var(--bg-card); padding: 3rem; border-radius: 20px; max-width: 600px; text-align: center; position: relative;">
+            <button onclick="closeQRModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--text-color); font-size: 2rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div style="margin-bottom: 2rem;">
+                <i class="fas fa-check-circle" style="font-size: 5rem; color: #00ff88;"></i>
+                <h2 style="color: var(--primary-color); margin-top: 1rem;">¡Parte Registrada Exitosamente!</h2>
+            </div>
+
+            <div id="qrCodeContainer" style="background: white; padding: 2rem; border-radius: 15px; margin: 2rem auto; display: inline-block;">
+                <!-- El QR se generará aquí -->
+            </div>
+
+            <div style="background: rgba(255, 170, 0, 0.2); padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                    <i class="fas fa-info-circle"></i> Guarda este código QR
+                </p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    Cualquier persona puede escanear este QR para verificar si la parte está reportada como robada
+                </p>
+            </div>
+
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button onclick="downloadQR()" class="btn-primary">
+                    <i class="fas fa-download"></i> Descargar QR
+                </button>
+                <button onclick="closeQRModal()" class="btn-primary" style="background: var(--accent-color);">
+                    <i class="fas fa-times"></i> Cerrar
+                </button>
+            </div>
+
+            <div id="reportInfo" style="margin-top: 2rem; text-align: left; background: var(--bg-dark); padding: 1.5rem; border-radius: 10px;">
+                <!-- Información del reporte -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AutoPartes Moto</h3>
+                    <p>Tu tienda de confianza para repuestos de motocicletas</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="reporte-robo.html">Reportar Robo</a></li>
+                        <li><a href="verificar-qr.html">Verificar QR</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Seguridad</h4>
+                    <ul>
+                        <li><a href="reporte-robo.html"><i class="fas fa-shield-alt"></i> Reportar Robo</a></li>
+                        <li><a href="verificar-qr.html"><i class="fas fa-qrcode"></i> Verificar QR</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@autopartesmoto.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección, Ciudad</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoPartes Moto - Prototipo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+    <script src="stolen-parts.js"></script>
+</body>
+</html>

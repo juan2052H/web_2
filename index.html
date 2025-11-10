@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comercio de Autopartes - Motocicletas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-motorcycle"></i>
+                <h1>AutoPartes Moto</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="reporte-robo.html">Reportar Robo</a></li>
+                    <li><a href="verificar-qr.html">Verificar QR</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Comercio de Autopartes</h2>
+            <h3>Hurtadas de Motocicletas</h3>
+            <p class="subtitle">Prototipo</p>
+            <a href="productos.html" class="btn-primary">Ver Productos</a>
+        </div>
+        <div class="hero-decoration">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+        </div>
+    </section>
+
+    <!-- Alerta de Seguridad -->
+    <section style="background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%); padding: 2rem 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: center; max-width: 1000px; margin: 0 auto;">
+                <div style="text-align: center;">
+                    <i class="fas fa-shield-alt" style="font-size: 4rem; color: white;"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: white;">
+                        <i class="fas fa-exclamation-triangle"></i> Sistema Anti-Robo Activo
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">
+                        Verifica que las autopartes no estén reportadas como robadas. Escanea el QR o reporta partes robadas.
+                    </p>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="reporte-robo.html" class="btn-primary" style="background: white; color: #cc0000; white-space: nowrap;">
+                        <i class="fas fa-exclamation-triangle"></i> Reportar
+                    </a>
+                    <a href="verificar-qr.html" class="btn-primary" style="background: rgba(255,255,255,0.2); border: 2px solid white; white-space: nowrap;">
+                        <i class="fas fa-qrcode"></i> Verificar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Categorías Destacadas</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Envío Rápido</h3>
+                    <p>Entrega en 24-48 horas</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garantía</h3>
+                    <p>30 días de garantía</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Soporte</h3>
+                    <p>Atención 24/7</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Pago Seguro</h3>
+                    <p>Múltiples métodos de pago</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AutoPartes Moto</h3>
+                    <p>Tu tienda de confianza para repuestos de motocicletas</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="reporte-robo.html">Reportar Robo</a></li>
+                        <li><a href="verificar-qr.html">Verificar QR</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categorías</h4>
+                    <ul id="footerCategories">
+                        <!-- Se cargarán dinámicamente -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@autopartesmoto.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección, Ciudad</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoPartes Moto - Prototipo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

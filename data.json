@@ -1,0 +1,293 @@
+{
+  "siteName": "AutoPartes Moto",
+  "siteDescription": "Comercio de autopartes de motocicletas",
+  "contactInfo": {
+    "phone": "+123 456 7890",
+    "email": "info@autopartesmoto.com",
+    "address": "Dirección de la tienda, Ciudad",
+    "whatsapp": "+123456789"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Motores",
+      "icon": "fas fa-cog",
+      "description": "Motores completos y repuestos"
+    },
+    {
+      "id": 2,
+      "name": "Suspensión",
+      "icon": "fas fa-compress-arrows-alt",
+      "description": "Amortiguadores y horquillas"
+    },
+    {
+      "id": 3,
+      "name": "Frenos",
+      "icon": "fas fa-stop-circle",
+      "description": "Sistemas de frenado completos"
+    },
+    {
+      "id": 4,
+      "name": "Escape",
+      "icon": "fas fa-wind",
+      "description": "Sistemas de escape deportivos"
+    },
+    {
+      "id": 5,
+      "name": "Carrocería",
+      "icon": "fas fa-car-side",
+      "description": "Carenados y piezas de carrocería"
+    },
+    {
+      "id": 6,
+      "name": "Eléctrico",
+      "icon": "fas fa-bolt",
+      "description": "Sistemas eléctricos y luces"
+    },
+    {
+      "id": 7,
+      "name": "Transmisión",
+      "icon": "fas fa-sync",
+      "description": "Cadenas, piñones y embragues"
+    },
+    {
+      "id": 8,
+      "name": "Accesorios",
+      "icon": "fas fa-tools",
+      "description": "Accesorios y equipamiento"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Motor Completo Honda CBR 600RR",
+      "category": 1,
+      "price": 2500,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Motor+CBR+600RR",
+      "description": "Motor completo Honda CBR 600RR en excelente estado. 20,000 km recorridos.",
+      "featured": true,
+      "stock": 3,
+      "condition": "Usado - Excelente",
+      "year": "2018-2020"
+    },
+    {
+      "id": 2,
+      "name": "Horquilla Invertida Yamaha R6",
+      "category": 2,
+      "price": 850,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Horquilla+R6",
+      "description": "Horquilla invertida original Yamaha R6. Perfecta para mejoras de suspensión.",
+      "featured": true,
+      "stock": 5,
+      "condition": "Usado - Muy Bueno",
+      "year": "2017-2019"
+    },
+    {
+      "id": 3,
+      "name": "Sistema de Frenos Brembo Racing",
+      "category": 3,
+      "price": 1200,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Brembo+Racing",
+      "description": "Sistema completo de frenos Brembo Racing. Incluye pinzas, discos y latiguillos.",
+      "featured": true,
+      "stock": 2,
+      "condition": "Usado - Excelente",
+      "year": "Universal"
+    },
+    {
+      "id": 4,
+      "name": "Escape Akrapovic Kawasaki ZX-10R",
+      "category": 4,
+      "price": 950,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Akrapovic+ZX10R",
+      "description": "Escape deportivo Akrapovic completo. Titanio, muy ligero.",
+      "featured": true,
+      "stock": 4,
+      "condition": "Usado - Muy Bueno",
+      "year": "2016-2020"
+    },
+    {
+      "id": 5,
+      "name": "Kit Carenados Suzuki GSX-R 750",
+      "category": 5,
+      "price": 650,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Carenados+GSXR",
+      "description": "Kit completo de carenados originales Suzuki GSX-R 750. Color azul/blanco.",
+      "featured": false,
+      "stock": 1,
+      "condition": "Usado - Bueno",
+      "year": "2015-2017"
+    },
+    {
+      "id": 6,
+      "name": "Faro LED BMW S1000RR",
+      "category": 6,
+      "price": 450,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Faro+LED+BMW",
+      "description": "Faro delantero LED original BMW S1000RR. Alta intensidad.",
+      "featured": false,
+      "stock": 6,
+      "condition": "Usado - Excelente",
+      "year": "2019-2021"
+    },
+    {
+      "id": 7,
+      "name": "Kit Transmisión DID Racing",
+      "category": 7,
+      "price": 320,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Kit+DID",
+      "description": "Kit completo de transmisión DID Racing. Cadena, piñón y corona.",
+      "featured": true,
+      "stock": 8,
+      "condition": "Nuevo",
+      "year": "Universal"
+    },
+    {
+      "id": 8,
+      "name": "Amortiguador Öhlins Ducati Panigale",
+      "category": 2,
+      "price": 1100,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Ohlins+Panigale",
+      "description": "Amortiguador trasero Öhlins original Ducati Panigale V4.",
+      "featured": true,
+      "stock": 2,
+      "condition": "Usado - Excelente",
+      "year": "2018-2022"
+    },
+    {
+      "id": 9,
+      "name": "Manillar Clip-On Racing",
+      "category": 8,
+      "price": 180,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Manillar+Racing",
+      "description": "Manillar clip-on racing de aluminio anodizado. Ajustable.",
+      "featured": false,
+      "stock": 10,
+      "condition": "Nuevo",
+      "year": "Universal"
+    },
+    {
+      "id": 10,
+      "name": "Cuadro Instrumentos KTM RC 390",
+      "category": 6,
+      "price": 380,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Dashboard+KTM",
+      "description": "Cuadro de instrumentos digital completo KTM RC 390.",
+      "featured": false,
+      "stock": 3,
+      "condition": "Usado - Muy Bueno",
+      "year": "2017-2020"
+    },
+    {
+      "id": 11,
+      "name": "Discos de Freno Brembo Delanteros",
+      "category": 3,
+      "price": 420,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Discos+Brembo",
+      "description": "Par de discos de freno delanteros Brembo. 320mm, flotantes.",
+      "featured": false,
+      "stock": 6,
+      "condition": "Usado - Excelente",
+      "year": "Universal"
+    },
+    {
+      "id": 12,
+      "name": "Colín Fibra Carbono Universal",
+      "category": 5,
+      "price": 290,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Colin+Carbono",
+      "description": "Colín monoplaza de fibra de carbono. Ultra ligero.",
+      "featured": false,
+      "stock": 5,
+      "condition": "Nuevo",
+      "year": "Universal"
+    },
+    {
+      "id": 13,
+      "name": "Motor Triumph Street Triple 675",
+      "category": 1,
+      "price": 2200,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Motor+Triumph",
+      "description": "Motor completo Triumph Street Triple 675. 15,000 km.",
+      "featured": false,
+      "stock": 1,
+      "condition": "Usado - Muy Bueno",
+      "year": "2013-2016"
+    },
+    {
+      "id": 14,
+      "name": "Sistema Escape Arrow MV Agusta",
+      "category": 4,
+      "price": 1150,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Arrow+MV",
+      "description": "Escape completo Arrow para MV Agusta F3. Titanio y carbono.",
+      "featured": false,
+      "stock": 2,
+      "condition": "Usado - Excelente",
+      "year": "2017-2020"
+    },
+    {
+      "id": 15,
+      "name": "Batería Litio Racing 12V",
+      "category": 6,
+      "price": 220,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Bateria+Litio",
+      "description": "Batería de litio ultra ligera para competición. 12V 6Ah.",
+      "featured": false,
+      "stock": 12,
+      "condition": "Nuevo",
+      "year": "Universal"
+    },
+    {
+      "id": 16,
+      "name": "Embrague Racing Slipper",
+      "category": 7,
+      "price": 680,
+      "currency": "$",
+      "image": "https://via.placeholder.com/300x300/1a1a2e/00d4ff?text=Embrague+Slipper",
+      "description": "Embrague anti-rebote tipo slipper. Previene bloqueo de rueda trasera.",
+      "featured": true,
+      "stock": 4,
+      "condition": "Nuevo",
+      "year": "Universal"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Juan Pérez",
+      "rating": 5,
+      "comment": "Excelente calidad de productos y atención al cliente.",
+      "date": "2025-10-15"
+    },
+    {
+      "id": 2,
+      "name": "María González",
+      "rating": 5,
+      "comment": "Encontré justo lo que necesitaba para mi moto. Muy recomendado.",
+      "date": "2025-10-20"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Rodríguez",
+      "rating": 4,
+      "comment": "Buenos precios y entrega rápida. Volveré a comprar.",
+      "date": "2025-10-28"
+    }
+  ]
+}

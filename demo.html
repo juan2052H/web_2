@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Sistema Anti-Robo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-flask"></i>
+                <h1>DEMO - Sistema Anti-Robo</h1>
+            </div>
+        </div>
+    </header>
+
+    <section style="padding: 3rem 0; min-height: 80vh;">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <i class="fas fa-vial" style="font-size: 5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Área de Pruebas</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                        Carga datos de ejemplo para probar el sistema anti-robo
+                    </p>
+                </div>
+
+                <div style="background: var(--bg-card); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-info-circle"></i> Instrucciones
+                    </h2>
+                    <ol style="color: var(--text-secondary); line-height: 2;">
+                        <li>Haz clic en "Cargar Datos de Ejemplo" para agregar 5 reportes de prueba</li>
+                        <li>Ve a la página de "Verificar QR" para probar el sistema</li>
+                        <li>Usa los códigos de ejemplo para verificar partes robadas</li>
+                        <li>Prueba también reportar una nueva parte robada</li>
+                        <li>Cuando termines, limpia los datos con el botón correspondiente</li>
+                    </ol>
+                </div>
+
+                <div style="display: grid; gap: 1.5rem; margin-bottom: 2rem;">
+                    <button onclick="cargarDatosEjemplo()" class="btn-primary" style="padding: 1.5rem; font-size: 1.2rem;">
+                        <i class="fas fa-database"></i> Cargar Datos de Ejemplo
+                    </button>
+                    
+                    <button onclick="verDatos()" class="btn-primary" style="background: var(--accent-color); padding: 1.5rem; font-size: 1.2rem;">
+                        <i class="fas fa-eye"></i> Ver Datos Actuales
+                    </button>
+                    
+                    <button onclick="limpiarDatos()" class="btn-primary" style="background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%); padding: 1.5rem; font-size: 1.2rem;">
+                        <i class="fas fa-trash"></i> Limpiar Todos los Datos
+                    </button>
+                </div>
+
+                <div id="resultadoDemo" style="display: none; background: var(--bg-card); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                    <!-- Resultados aparecerán aquí -->
+                </div>
+
+                <div style="background: var(--bg-card); padding: 2rem; border-radius: 15px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-barcode"></i> Códigos de Ejemplo para Verificar
+                    </h3>
+                    <div style="display: grid; gap: 1rem;">
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Motor Yamaha YZF-R1</strong>
+                                <br>
+                                <code style="color: var(--primary-color); font-size: 0.9rem;">STOLEN-1699000000001</code>
+                            </div>
+                            <button onclick="copiarCodigo('STOLEN-1699000000001')" class="btn-primary" style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Sistema de Frenos Brembo M50</strong>
+                                <br>
+                                <code style="color: var(--primary-color); font-size: 0.9rem;">STOLEN-1699000000002</code>
+                            </div>
+                            <button onclick="copiarCodigo('STOLEN-1699000000002')" class="btn-primary" style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Escape Akrapovic Kawasaki</strong>
+                                <br>
+                                <code style="color: var(--primary-color); font-size: 0.9rem;">STOLEN-1699000000003</code>
+                            </div>
+                            <button onclick="copiarCodigo('STOLEN-1699000000003')" class="btn-primary" style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Horquilla Showa Suzuki GSX-R</strong>
+                                <br>
+                                <code style="color: var(--primary-color); font-size: 0.9rem;">STOLEN-1699000000004</code>
+                            </div>
+                            <button onclick="copiarCodigo('STOLEN-1699000000004')" class="btn-primary" style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Carenados Honda CBR 1000RR</strong>
+                                <br>
+                                <code style="color: var(--primary-color); font-size: 0.9rem;">STOLEN-1699000000005</code>
+                            </div>
+                            <button onclick="copiarCodigo('STOLEN-1699000000005')" class="btn-primary" style="padding: 0.5rem 1rem;">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(0, 212, 255, 0.1); border-radius: 15px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-rocket"></i> Probar el Sistema
+                    </h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="reporte-robo.html" class="btn-primary">
+                            <i class="fas fa-exclamation-triangle"></i> Reportar Parte Robada
+                        </a>
+                        <a href="verificar-qr.html" class="btn-primary" style="background: var(--accent-color);">
+                            <i class="fas fa-qrcode"></i> Verificar Código QR
+                        </a>
+                        <a href="index.html" class="btn-primary" style="background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%); color: var(--secondary-color);">
+                            <i class="fas fa-home"></i> Ir al Inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="ejemplos-datos.js"></script>
+    <script>
+        function cargarDatosEjemplo() {
+            const resultado = cargarEjemplosReportes();
+            mostrarResultado('success', `
+                <i class="fas fa-check-circle" style="font-size: 3rem; color: #00ff88; margin-bottom: 1rem;"></i>
+                <h3>¡Datos Cargados Exitosamente!</h3>
+                <p>Se han agregado ${ejemplosReportes.length} reportes de ejemplo.</p>
+                <p style="margin-top: 1rem;">Total de reportes: <strong>${resultado.length}</strong></p>
+                <p style="margin-top: 1rem; color: var(--text-secondary);">
+                    Ahora puedes ir a <a href="verificar-qr.html" style="color: var(--primary-color);">Verificar QR</a> 
+                    y probar los códigos de ejemplo.
+                </p>
+            `);
+        }
+
+        function verDatos() {
+            const reportes = verReportes();
+            if (reportes.length === 0) {
+                mostrarResultado('info', `
+                    <i class="fas fa-info-circle" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>No hay datos</h3>
+                    <p>No hay reportes en la base de datos.</p>
+                    <p style="margin-top: 1rem;">Haz clic en "Cargar Datos de Ejemplo" para agregar reportes de prueba.</p>
+                `);
+            } else {
+                let html = `
+                    <i class="fas fa-database" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Reportes en la Base de Datos</h3>
+                    <p>Total: <strong>${reportes.length}</strong> reportes</p>
+                    <div style="margin-top: 1.5rem; max-height: 400px; overflow-y: auto;">
+                `;
+                
+                reportes.forEach(r => {
+                    html += `
+                        <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem; text-align: left;">
+                            <strong>${r.part.name}</strong> - ${r.part.brand}<br>
+                            <small style="color: var(--text-secondary);">
+                                Código: <code style="color: var(--primary-color);">${r.id}</code><br>
+                                Robado: ${r.theft.date} en ${r.theft.location}
+                            </small>
+                        </div>
+                    `;
+                });
+                
+                html += `</div>`;
+                mostrarResultado('info', html);
+            }
+        }
+
+        function limpiarDatos() {
+            if (confirm('⚠️ ¿Estás seguro de eliminar TODOS los reportes?\n\nEsta acción no se puede deshacer.')) {
+                localStorage.removeItem('stolenParts');
+                mostrarResultado('warning', `
+                    <i class="fas fa-trash" style="font-size: 3rem; color: #ffaa00; margin-bottom: 1rem;"></i>
+                    <h3>Datos Eliminados</h3>
+                    <p>Todos los reportes han sido eliminados de la base de datos.</p>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">
+                        Puedes cargar los datos de ejemplo nuevamente si lo necesitas.
+                    </p>
+                `);
+            }
+        }
+
+        function copiarCodigo(codigo) {
+            navigator.clipboard.writeText(codigo).then(() => {
+                showNotification('Código copiado: ' + codigo, 'success');
+            });
+        }
+
+        function mostrarResultado(tipo, html) {
+            const resultado = document.getElementById('resultadoDemo');
+            resultado.style.display = 'block';
+            resultado.style.textAlign = 'center';
+            resultado.innerHTML = html;
+            resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                background: ${type === 'success' ? '#00ff88' : type === 'warning' ? '#ffaa00' : '#00d4ff'};
+                color: #1a1a2e;
+                border-radius: 8px;
+                font-weight: bold;
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            `;
+            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

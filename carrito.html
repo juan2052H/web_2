@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - AutoPartes Moto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-motorcycle"></i>
+                <h1>AutoPartes Moto</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="reporte-robo.html">Reportar Robo</a></li>
+                    <li><a href="verificar-qr.html">Verificar QR</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="carrito.html" class="active cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: var(--gradient-1); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">
+                <i class="fas fa-shopping-cart"></i> Carrito de Compras
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary);">Revisa y confirma tu pedido</p>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section style="padding: 3rem 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 400px; gap: 2rem; align-items: start;">
+                <div class="cart-items" id="cartItems">
+                    <div class="loading">Cargando carrito</div>
+                </div>
+                <div class="cart-summary" id="cartSummary">
+                    <!-- Se cargará dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AutoPartes Moto</h3>
+                    <p>Tu tienda de confianza para repuestos de motocicletas</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="reporte-robo.html">Reportar Robo</a></li>
+                        <li><a href="verificar-qr.html">Verificar QR</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categorías</h4>
+                    <ul id="footerCategories">
+                        <!-- Se cargarán dinámicamente -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@autopartesmoto.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dirección, Ciudad</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoPartes Moto - Prototipo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @media (max-width: 768px) {
+            .container > div {
+                grid-template-columns: 1fr !important;
+            }
+            .cart-summary {
+                position: static !important;
+            }
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>
